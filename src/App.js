@@ -1,8 +1,11 @@
 import React from 'react';
+import RoutesComponent from './Routes';
 
-function App() {
+const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <RoutesComponent />
+      </div>
   );
 }
 
