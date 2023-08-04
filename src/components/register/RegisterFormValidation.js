@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const registerValidation = yup.object({
+export const registerValidationSchema = yup.object({
         firstName: yup
             .string()
             .required()

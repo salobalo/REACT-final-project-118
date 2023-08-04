@@ -1,7 +1,7 @@
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerValidation } from './RegisterFormValidation';
+import { registerValidationSchema } from './RegisterFormValidation';
 import { Button, FormContainer, Input } from '../atoms';
 
 export const RegisterForm = () => {
@@ -10,9 +10,9 @@ export const RegisterForm = () => {
         control,
         formState: { errors },
     } = useForm({
-        resolver: yupResolver(registerValidation),
+        resolver: yupResolver(registerValidationSchema),
         mode: "onChange",
-    });
+    }); 
 
     const onSubmit = (data) => {
         console.log("DATA", data);
