@@ -11,7 +11,7 @@ export const authenticateUser = createAsyncThunk(
       localStorage.setItem("refreshToken", data.refreshToken);
       return data;
     } catch (error) {
-      return rejectWithValue(error?.response?.message);
+      return rejectWithValue(error?.response?.data?.message);
     }
   }
 );

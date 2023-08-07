@@ -26,12 +26,11 @@ export const LoginForm = () => {
     dispatch(authenticateUser({ formValues: data, isLogin: true }))
       .unwrap()
       .then(() => {
-        console.log("h1");
         navigate("/");
         showAlert("warmateba", "success");
       })
-      .catch(() => {
-        showAlert("paroli arasworia", "error");
+      .catch((error) => {
+        showAlert(error, "error");
       });
   };
 

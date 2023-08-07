@@ -2,10 +2,11 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerValidationSchema } from "./RegisterFormValidation";
-import { Button, FormContainer, Input } from "../atoms";
+import { Alert, Button, FormContainer, Input } from "../atoms";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../redux";
 import { useNavigate } from "react-router-dom";
+import { useAlert } from "../../hooks";
 
 export const RegisterForm = () => {
   const {
@@ -18,13 +19,15 @@ export const RegisterForm = () => {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const {showAlert, alertState,handleClose} = useAlert();
   const onSubmit = (data) => {
     console.log("DATA", data);
     dispatch(authenticateUser({ formValues: data }))
       .unwrap()
       .then(() => {
         navigate("/");
+      }).catch((error)=>{
+        showAlert(error,"error");
       })
       // .catch();
   };
@@ -100,6 +103,7 @@ export const RegisterForm = () => {
           );
         }}
       />
+      <Alert handleCLose={handleClose} {...alertState} />
       <Button onClick={handleSubmit(onSubmit)}>submit</Button>
     </FormContainer>
   );
