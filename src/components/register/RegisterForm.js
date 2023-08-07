@@ -5,6 +5,7 @@ import { registerValidationSchema } from "./RegisterFormValidation";
 import { Button, FormContainer, Input } from "../atoms";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../redux";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
   const {
@@ -15,12 +16,17 @@ export const RegisterForm = () => {
     resolver: yupResolver(registerValidationSchema),
     mode: "onChange",
   });
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     console.log("DATA", data);
-    dispatch(authenticateUser({ formValues: data }));
+    dispatch(authenticateUser({ formValues: data }))
+      .unwrap()
+      .then(() => {
+        navigate("/");
+      })
+      // .catch();
   };
 
   return (

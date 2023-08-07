@@ -2,9 +2,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { LoginValidationSchema } from "./LoginFormValidation";
-import { Button, FormContainer, Input } from "../atoms";
+import { Alert, Button, FormContainer, Input } from "../atoms";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../redux";
+import { useNavigate } from "react-router-dom";
+import { useAlert } from "../../hooks";
 
 export const LoginForm = () => {
   const {
@@ -15,11 +17,22 @@ export const LoginForm = () => {
     resolver: yupResolver(LoginValidationSchema),
     mode: "onChange",
   });
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { showAlert, alertState, handleClose } = useAlert();
+
   const onSubmit = (data) => {
     console.log("DATA", data);
-    dispatch(authenticateUser({ formValues: data, isLogin: true }));
+    dispatch(authenticateUser({ formValues: data, isLogin: true }))
+      .unwrap()
+      .then(() => {
+        console.log("h1");
+        navigate("/");
+        showAlert("warmateba", "success");
+      })
+      .catch(() => {
+        showAlert("paroli arasworia", "error");
+      });
   };
 
   return (
@@ -59,6 +72,7 @@ export const LoginForm = () => {
           );
         }}
       />
+      <Alert handleClose={handleClose} {...alertState} />
       <Button onClick={handleSubmit(onSubmit)}>login</Button>
     </FormContainer>
   );
