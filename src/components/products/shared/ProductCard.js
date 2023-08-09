@@ -1,7 +1,6 @@
 import { Box, Card, Grid, styled } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-import { Text } from "../../atoms";
+import { Link, Text } from "../../atoms";
 
 const StyledImage = styled("img")(() => ({
   objectFit: "cover",
@@ -21,7 +20,7 @@ export const ProductCard = ({ product }) => {
   return (
     <Grid item xs={12} sm={12} md={4} lg={3}>
       <Card sx={{ borderRadius: 8 }}>
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" , color:"black"}}>
           <StyledImage src={image} alt={`${brand} - ${name}`} />
           <StyledInfoContainer>
             <Text>{name}</Text>
