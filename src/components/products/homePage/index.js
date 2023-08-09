@@ -1,0 +1,2 @@
+export {HomePageProduct} from "./HomePageProduct";
+ 
