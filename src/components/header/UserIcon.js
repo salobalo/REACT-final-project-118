@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { Button } from "../atoms";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../hooks";
-import { isUserAdmin } from "../../helpers/utils";
+import {  getUserInitials, isUserAdmin } from "../../helpers/utils";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux";
 
-const styledBox = styled(Box)(() => ({
+const StyledBox = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
   borderRadius: 10,
@@ -21,7 +21,7 @@ export const UserIcon = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <IconButton onClick={(e) => setAnchor(e.currentTarget)}>
-        <Avatar>DM</Avatar>
+        <Avatar>{getUserInitials(userData)}</Avatar>
       </IconButton>
 
       <Menu
@@ -32,7 +32,7 @@ export const UserIcon = () => {
           setAnchor(null);
         }}
       >
-        <styledBox>
+        <StyledBox>
           {!userData && (
             <>
               <MenuItem>
@@ -62,7 +62,7 @@ export const UserIcon = () => {
               </Button>
             </MenuItem>
           )}
-        </styledBox>
+        </StyledBox>
       </Menu>
     </Box>
   );
