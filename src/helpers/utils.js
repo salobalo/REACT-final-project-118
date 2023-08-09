@@ -1,5 +1,5 @@
 export const isUserAdmin = (user) => {
-     if(!user) return;
+  if (!user) return;
 
-     return user?.role ?.includes("admin");
+  return user?.role?.includes("admin");
 };

@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar, styled } from "@mui/material";
 import React from "react";
 import { Link } from "../atoms";
-
+import { UserIcon } from "./UserIcon";
 
 const StyledAppar = styled(AppBar)(() => ({
   backgroundColor: "#131921",
@@ -22,8 +22,12 @@ export const Header = () => {
       <StyledAppar>
         <StyledToolBar>
           <Link to="/">home</Link>
+          <Box sx={{ display: "flex" }}>
+            <div> </div>
+            <UserIcon />
+          </Box>
         </StyledToolBar>
-      </StyledAppar>
+      </StyledAppar> 
     </Box>
   );
 };
