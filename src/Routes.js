@@ -1,14 +1,34 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Homepage, Loginpage, ProductFormPage, Registerpage } from "./pages";
+import { ProtectedRoute, isUserAdmin } from "./helpers";
+import { useUser } from "./hooks";
 
 const RoutesComponent = () => {
+  const { userData } = useUser();
+  const isAdmin = isUserAdmin(userData);
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<Loginpage />} />
       <Route path="/register" element={<Registerpage />} />
-      <Route path="/products/new" element={<ProductFormPage />} />
+      {/* marto admins unda uchvenos */}
+      <Route
+        path="/products/new"
+        element={
+          <ProtectedRoute canAccess={isAdmin}>
+            <ProductFormPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/products/:id/edit"
+        element={
+          <ProtectedRoute canAccess={isAdmin}>
+            <ProductFormPage />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 };

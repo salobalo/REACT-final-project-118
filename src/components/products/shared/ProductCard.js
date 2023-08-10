@@ -1,6 +1,8 @@
-import { Box, Card, Grid, styled } from "@mui/material";
+import { Box, Card, CardActions, Grid, styled } from "@mui/material";
 import React from "react";
 import { Link, Text } from "../../atoms";
+import { ProductCardActions } from "./ProductCardActions";
+import { useUser } from "../../../hooks";
 
 const StyledImage = styled("img")(() => ({
   objectFit: "cover",
@@ -17,16 +19,20 @@ const StyledInfoContainer = styled(Box)(() => ({
 
 export const ProductCard = ({ product }) => {
   const { _id, name, price, image, brand } = product;
+  const {userData} = useUser()
   return (
     <Grid item xs={12} sm={12} md={4} lg={3}>
       <Card sx={{ borderRadius: 8 }}>
-        <Link to="/" style={{ textDecoration: "none" , color:"black"}}>
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
           <StyledImage src={image} alt={`${brand} - ${name}`} />
           <StyledInfoContainer>
             <Text>{name}</Text>
             <Text>${price}</Text>
           </StyledInfoContainer>
         </Link>
+        <CardActions>
+          <ProductCardActions userData={userData} product={product} />
+        </CardActions>
       </Card>
     </Grid>
   );
