@@ -3,7 +3,7 @@ import { isUserAdmin } from "../../../helpers";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setSelecdetProduct } from "../../../redux";
+import { deleteroduct, setSelecdetProduct } from "../../../redux";
 
 export const ProductCardActions = ({ userData, product }) => {
   const navigate = useNavigate();
@@ -19,7 +19,13 @@ export const ProductCardActions = ({ userData, product }) => {
         >
           edit
         </Button>
-        <Button>delete</Button>
+        <Button
+          onClick={() => {
+            dispatch(deleteroduct(product._id));
+          }}
+        >
+          delete
+        </Button>
       </>
     );
   }

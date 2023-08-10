@@ -30,6 +30,18 @@ export const fetchHomePageProducts = createAsyncThunk(
   }
 );
 
+export const deleteroduct = createAsyncThunk(
+  "product/deleteProduct",
+  async (id, { dispatch, rejectWithValue }) => {
+    try {
+      await axiosInstance.delete(`/products/${id}`);
+      dispatch(fetchHomePageProducts());
+    } catch (error) {
+      return rejectWithValue("error deleting product");
+    }
+  }
+);
+
 const productSlice = createSlice({
   name: "product",
   initialState: {
@@ -63,6 +75,19 @@ const productSlice = createSlice({
       state.error = null;
     });
     builder.addCase(saveProduct.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+
+    builder.addCase(deleteroduct.pending, (state, action) => {
+      state.loading = true;
+    });
+    
+    builder.addCase(deleteroduct.fulfilled, (state, action) => {
+      state.loading = false;
+    });
+
+    builder.addCase(deleteroduct.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });
