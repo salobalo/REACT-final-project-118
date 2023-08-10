@@ -2,6 +2,7 @@ import { AppBar, Box, Toolbar, styled } from "@mui/material";
 import React from "react";
 import { Link } from "../atoms";
 import { UserIcon } from "./UserIcon";
+import { ProductCategories } from "./ProductCategories";
 
 const StyledAppar = styled(AppBar)(() => ({
   backgroundColor: "#131921",
@@ -27,6 +28,7 @@ export const Header = () => {
             <UserIcon />
           </Box>
         </StyledToolBar>
+        <ProductCategories />
       </StyledAppar> 
     </Box>
   );

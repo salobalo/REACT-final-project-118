@@ -31,10 +31,7 @@ const App = () => {
       >
         <RoutesComponent />
       </Grid>
-      {/* <Link to="/login">login</Link> <br />
-      <Link to="/register">register</Link><br />
-      {isUserAdmin(formValues) && <Link to="/products/new">add product</Link>}
-      <RoutesComponent /> */}
+    
     </Grid>
   );
 };
