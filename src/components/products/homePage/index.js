@@ -1,2 +1,1 @@
-export {HomePageProduct} from "./HomePageProduct";
- 
+export { HomePageProduct } from "./HomePageProducts";
