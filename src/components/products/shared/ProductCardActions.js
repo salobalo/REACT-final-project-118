@@ -1,5 +1,6 @@
 import React from "react";
 import { isUserAdmin } from "../../../helpers";
+import { Button, Text } from "../../atoms";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
@@ -8,10 +9,9 @@ import {
   removeFromCart,
   setSelecdetProduct,
 } from "../../../redux";
-import { Button } from "../../atoms/Button";
 import { Box } from "@mui/material";
 import { useCart } from "../../../hooks";
-import { Text } from "../../atoms/Text";
+
 
 export const ProductCardActions = ({ userData, product }) => {
   const navigate = useNavigate();
