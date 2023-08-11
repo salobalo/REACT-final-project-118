@@ -8,4 +8,5 @@ export {
   saveProduct,
   deleteroduct,
   fetchHomePageProducts,
+  fetchCategoryProducts
 } from "./productSlice";
