@@ -8,5 +8,8 @@ export {
   saveProduct,
   deleteroduct,
   fetchHomePageProducts,
-  fetchCategoryProducts
+  fetchCategoryProducts,
 } from "./productSlice";
+
+//cart slice
+export { cartReducer, clearCart, addToCart, removeFromCart } from "./cartSlice";
