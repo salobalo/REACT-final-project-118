@@ -12,11 +12,11 @@ import {
 import { Box } from "@mui/material";
 import { useCart } from "../../../hooks";
 
-
 export const ProductCardActions = ({ userData, product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems } = useCart();
+  
   if (isUserAdmin(userData)) {
     return (
       <>
