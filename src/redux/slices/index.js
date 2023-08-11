@@ -12,4 +12,12 @@ export {
 } from "./productSlice";
 
 //cart slice
-export { cartReducer, clearCart, addToCart, removeFromCart } from "./cartSlice";
+export {
+  cartReducer,
+  clearCart,
+  addToCart,
+  removeFromCart,
+  //async actions
+  fetchCart,
+  saveCart,
+} from "./cartSlice";
