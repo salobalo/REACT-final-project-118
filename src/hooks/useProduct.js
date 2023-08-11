@@ -13,6 +13,8 @@ export const useProduct = () => {
     (state) => state.product.categoryProducts
   );
 
+  const totalPages = useSelector((state) => state.product.totalPages);
+
   const isLoading = useSelector((state) => state.product.loading);
 
   return {
@@ -20,6 +22,7 @@ export const useProduct = () => {
     selectedProduct,
     categories,
     categoryProducts,
+    totalPages,
     isLoading,
   };
 };

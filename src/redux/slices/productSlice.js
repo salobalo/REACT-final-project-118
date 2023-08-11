@@ -65,6 +65,7 @@ const productSlice = createSlice({
     selectedProduct: null,
     categories: [],
     categoryProducts: [],
+    totalPages: 0,
   },
   reducers: {
     setSelecdetProduct: (state, action) => {
@@ -92,6 +93,7 @@ const productSlice = createSlice({
     builder.addCase(fetchCategoryProducts.fulfilled, (state, action) => {
       state.loading = false;
       state.categoryProducts = action.payload.products;
+      state.totalPages = action.payload.totalPages;
     });
 
     builder.addCase(fetchCategoryProducts.rejected, (state) => {
