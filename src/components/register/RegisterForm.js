@@ -29,7 +29,7 @@ export const RegisterForm = () => {
       }).catch((error)=>{
         showAlert(error,"error");
       })
-      // .catch();
+
   };
 
   return (
