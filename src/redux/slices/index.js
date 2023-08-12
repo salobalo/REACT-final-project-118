@@ -6,7 +6,7 @@ export {
   productReducer,
   setSelecdetProduct,
   saveProduct,
-  deleteroduct,
+  deleteProduct ,
   fetchHomePageProducts,
   fetchCategoryProducts,
 } from "./productSlice";

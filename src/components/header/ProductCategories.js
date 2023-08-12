@@ -5,7 +5,7 @@ import { Link, Text } from "../atoms";
 
 const StyledListItem = styled(ListItem)(() => ({
   padding: "5px 0px 3px 15px",
-  margin: "px",
+  margin: "10px",
 }));
 
 export const ProductCategories = () => {
@@ -17,7 +17,7 @@ export const ProductCategories = () => {
         return (
           <Link key={_id} to={`/products/categories/${name}?page =1&sort=price,asc`  } >
             <StyledListItem>
-              <Text color="#FF9900"> {name} </Text>
+              <Text color="#f8f8f8" sx={{ fontWeight: "bold" }} > {name} </Text>
             </StyledListItem>
           </Link>
         );

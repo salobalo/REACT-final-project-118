@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   addToCart,
-  deleteroduct,
+  deleteProduct,
   removeFromCart,
   setSelecdetProduct,
 } from "../../../redux";
@@ -30,7 +30,7 @@ export const ProductCardActions = ({ userData, product }) => {
         </Button>
         <Button
           onClick={() => {
-            dispatch(deleteroduct(product._id));
+            dispatch(deleteProduct(product._id));
           }}
         >
           delete

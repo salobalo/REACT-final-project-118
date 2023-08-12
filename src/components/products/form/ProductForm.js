@@ -45,7 +45,9 @@ export const ProductForm = () => {
       .then(() => {
         console.log("HI");
         navigate("/");
-      });
+      }).catch((error)=>{
+        navigate("/");
+      })
   };
   return (
     <FormContainer>

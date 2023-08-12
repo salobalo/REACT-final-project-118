@@ -79,7 +79,7 @@ const cartSlice = createSlice({
         state.cartItems = state.cartItems.filter(
           (item) => item.product._id !== productId
         );
-        //unda amobshalot
+        //unda amovshalot
       }
     },
   },

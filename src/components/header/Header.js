@@ -5,8 +5,10 @@ import { UserIcon } from "./UserIcon";
 import { ProductCategories } from "./ProductCategories";
 import { CartDrawer } from "./CartDrawer";
 import { FiShoppingCart } from "react-icons/fi";
+import { SearchBar } from "./SearchBar";
+import { AiFillHome } from "react-icons/ai";
 const StyledAppar = styled(AppBar)(() => ({
-  backgroundColor: "#131921",
+  backgroundColor: "#160358",
   padding: "0 37px 0 30px",
 }));
 
@@ -24,7 +26,10 @@ export const Header = () => {
     <Box>
       <StyledAppar>
         <StyledToolBar>
-          <Link to="/">home</Link>
+          <Link to="/">
+          <AiFillHome  size={35} color="#f8f8f8"/>
+          </Link>
+          <SearchBar />
           <Box
             sx={{
               display: "flex",
@@ -33,10 +38,9 @@ export const Header = () => {
               width: 100,
             }}
           >
-            <Button onClick={()=>setIsCartOpen(true  )}>
+            <Button onClick={() => setIsCartOpen(true)}>
               <FiShoppingCart size={35} color="red" />
             </Button>
-
             <UserIcon />
           </Box>
         </StyledToolBar>

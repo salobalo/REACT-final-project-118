@@ -44,7 +44,7 @@ export const fetchCategoryProducts = createAsyncThunk(
   }
 );
 
-export const deleteroduct = createAsyncThunk(
+export const deleteProduct = createAsyncThunk(
   "product/deleteProduct",
   async (id, { dispatch, rejectWithValue }) => {
     try {
@@ -112,15 +112,15 @@ const productSlice = createSlice({
       state.error = action.payload;
     });
 
-    builder.addCase(deleteroduct.pending, (state, action) => {
+    builder.addCase(deleteProduct.pending, (state, action) => {
       state.loading = true;
     });
 
-    builder.addCase(deleteroduct.fulfilled, (state, action) => {
+    builder.addCase(deleteProduct.fulfilled, (state, action) => {
       state.loading = false;
     });
 
-    builder.addCase(deleteroduct.rejected, (state, action) => {
+    builder.addCase(deleteProduct.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });
