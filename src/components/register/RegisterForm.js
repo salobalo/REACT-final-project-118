@@ -21,7 +21,6 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
   const {showAlert, alertState,handleClose} = useAlert();
   const onSubmit = (data) => {
-    console.log("DATA", data);
     dispatch(authenticateUser({ formValues: data }))
       .unwrap()
       .then(() => {

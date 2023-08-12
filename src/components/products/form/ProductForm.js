@@ -43,7 +43,6 @@ export const ProductForm = () => {
     )
       .unwrap()
       .then(() => {
-        console.log("HI");
         navigate("/");
       }).catch((error)=>{
         navigate("/");

@@ -58,7 +58,8 @@ export const SearchBar = () => {
               input: { color: "#FF9900" },
             }}
             InputLabelProps={{
-              style: { color: "FF9900" },
+              style: { color: "#FF9900" },
+              
             }}
           />
         );

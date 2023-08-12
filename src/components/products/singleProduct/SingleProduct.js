@@ -35,7 +35,6 @@ export const SingleProduct = () => {
     getData(`/products/category/${category}/${id}`);
   }, [id, category]);
 
-  console.log("DATA", data);
   const { image, name, brand, description } = data?.product  || {};
   return (
     <LoadingWrapper isLoading={loading}>

@@ -5,19 +5,19 @@ import { Link, Text } from "../atoms";
 
 const StyledListItem = styled(ListItem)(() => ({
   padding: "5px 0px 3px 15px",
-  margin: "10px",
+  margin: "0px",
 }));
 
 export const ProductCategories = () => {
   const { categories } = useProduct();
   return (
-    <List sx={{ display: "flex" }}>
+    <List sx={{ display: "flex"  }}>
       {categories.map((category) => {
         const { _id, name } = category;
         return (
           <Link key={_id} to={`/products/categories/${name}?page =1&sort=price,asc`  } >
             <StyledListItem>
-              <Text color="#f8f8f8" sx={{ fontWeight: "bold" }} > {name} </Text>
+              <Text color="#FF9900" sx={{ fontWeight: "bold" , fontSize: "14px"}} > {name} </Text>
             </StyledListItem>
           </Link>
         );

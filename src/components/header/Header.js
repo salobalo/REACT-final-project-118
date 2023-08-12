@@ -29,6 +29,8 @@ export const Header = () => {
           <Link to="/">
           <AiFillHome  size={35} color="#f8f8f8"/>
           </Link>
+ <ProductCategories />
+
           <SearchBar />
           <Box
             sx={{
@@ -44,7 +46,7 @@ export const Header = () => {
             <UserIcon />
           </Box>
         </StyledToolBar>
-        <ProductCategories />
+       
       </StyledAppar>
       <CartDrawer isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
     </Box>
