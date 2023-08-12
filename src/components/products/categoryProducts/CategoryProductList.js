@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCategoryProducts } from "../../../redux";
 import { useParams } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useProduct, useQueryParams } from "../../../hooks";
 import { GridContainer, ProductCard } from "../shared";
 import { Paginate } from "./Paginate";
 import { Box, styled } from "@mui/material";
-import { Loading, LoadingWrapper } from "../../atoms";
+import {  LoadingWrapper } from "../../atoms";
 import { Sort } from "./Sort";
 
 const Container = styled(Box)(() => ({
