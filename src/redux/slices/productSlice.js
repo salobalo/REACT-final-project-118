@@ -3,21 +3,21 @@ import { axiosInstance } from "../../helpers";
 
 export const saveProduct = createAsyncThunk(
   "product/saveProduct",
-  async ({ product, productId }, { rejectWithValue }) => {
+  async ({ product, productId }, { rejectWithValue, dispatch }) => {
     try {
       const method = productId ? "put" : "post";
       const endpoint = productId ? `/products/${productId}` : "/products";
       const { data } = await axiosInstance[method](endpoint, {
         product,
       });
-      dispatchEvent(fetchHomePageProducts());
+      dispatch(fetchHomePageProducts());
       return data;
     } catch (error) {
       return rejectWithValue("error creating product");
     }
   }
 );
-
+ 
 export const fetchHomePageProducts = createAsyncThunk(
   "product/fetchHomePageProducts",
   async (_, { rejectWithValue }) => {

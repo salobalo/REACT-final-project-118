@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(async (req) => {
   const token = localStorage.getItem("token");
   const refresh_token = localStorage.getItem("refreshToken");
-  if (!token ||  !refresh_token) return req;
+  if (!token || !refresh_token) return req;
   //davsetot Authoriation header1
   req.headers.Authorization = `Bearer ${token}`;
   // shevamowmot vada aqvs gasuli tu ara
@@ -23,6 +23,4 @@ axiosInstance.interceptors.request.use(async (req) => {
   localStorage.setItem("token", newAccessToken);
   req.headers.Authorization = `Bearer ${newAccessToken}`;
   return req;
-
 });
-
