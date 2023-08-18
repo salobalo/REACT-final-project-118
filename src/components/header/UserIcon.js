@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Button } from "../atoms";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../hooks";
-import {  getUserInitials, isUserAdmin } from "../../helpers/utils";
+import { getUserInitials, isUserAdmin } from "../../helpers/utils";
 import { useDispatch } from "react-redux";
-import { logout } from "../../redux";
+import { logout, setSelecdetProduct } from "../../redux";
 
 const StyledBox = styled(Box)(() => ({
   display: "flex",
@@ -57,7 +57,12 @@ export const UserIcon = () => {
           )}
           {isUserAdmin(userData) && (
             <MenuItem>
-              <Button onClick={() => navigate("/products/new")}>
+              <Button
+                onClick={() => {
+                  dispatch(setSelecdetProduct(null)); // Clear selected product
+                  navigate("/products/new");
+                }}
+              >
                 add product
               </Button>
             </MenuItem>
